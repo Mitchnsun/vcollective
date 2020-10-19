@@ -1,30 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+ _   _           _   _       _          _____       _ _           _   _           
+| | | |         | | (_)     (_)        /  __ \     | | |         | | (_)          
+| | | | ___  ___| |_ _  __ _ _ _ __ ___| /  \/ ___ | | | ___  ___| |_ ___   _____ 
+| | | |/ _ \/ __| __| |/ _` | | '__/ _ \ |    / _ \| | |/ _ \/ __| __| \ \ / / _ \
+\ \_/ /  __/\__ \ |_| | (_| | | | |  __/ \__/\ (_) | | |  __/ (__| |_| |\ V /  __/
+ \___/ \___||___/\__|_|\__,_|_|_|  \___|\____/\___/|_|_|\___|\___|\__|_| \_/ \___|
+                                                                                  
+                                                                                  
+ _____         _           _           _   _____         _                        
+|_   _|       | |         (_)         | | |_   _|       | |                       
+  | | ___  ___| |__  _ __  _  ___ __ _| |   | | ___  ___| |_                      
+  | |/ _ \/ __| '_ \| '_ \| |/ __/ _` | |   | |/ _ \/ __| __|                     
+  | |  __/ (__| | | | | | | | (_| (_| | |   | |  __/\__ \ |_                      
+  \_/\___|\___|_| |_|_| |_|_|\___\__,_|_|   \_/\___||___/\__|                     
+                                                                                  
+                                                                                  
+______               _   _____          _                                         
+|  ___|             | | |  ___|        | |                                        
+| |_ _ __ ___  _ __ | |_| |__ _ __   __| |                                        
+|  _| '__/ _ \| '_ \| __|  __| '_ \ / _` |                                        
+| | | | | (_) | | | | |_| |__| | | | (_| |                                        
+\_| |_|  \___/|_| |_|\__\____/_| |_|\__,_|                                        
+                                                                                  
 
-## Getting Started
+## I - Development
 
-First, run the development server:
+Given the products.json that is on this project which represents a response from a getProducts() API call
+Please provide a solution for each questions that follows with the stack/framework/language of your choice
+Each question is independent from the others.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Comments are appreciated ;-)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+1. User is coming from an Off-White promotion offer link, display only the Off-White's products with a reduced price of 10%.
 
-## Learn More
+2. Louis Vuitton doesn't want us to display the name of their brand on our website, could you reverse the name of the brand for each LV product to obfuscate their name ?
 
-To learn more about Next.js, take a look at the following resources:
+3. I'm a user from UK and I want to see product between 1500€ and 500€, ordered from the cheaper to the most expensive that are shippable to my country.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. We want to display : how many days/month/year since the products has been deposited on the website ?
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## II - Questions
 
-## Deploy on Vercel
+There are no wrong answers, only good opportunities to learn something new.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. What metrics are essential in term of Speed ?
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. Can you name ways to increase speed (perceived or actual load time) ?
+
+3. Could you tell me what are Observables and how they work ?
+
+4. You have a bug to fix, you find the file(s) where the bug occurs, the code is a mess, what do you do ?
+
+5. What represent FrontEnd to you ?
+
+6. What was the last technical challenge you faced and how you did you handle it ?
+
+7. What is the next language/framework/stack you want to learn this year and why ?
+
+## III - Extra Time
+
+In case you want to have fun 
+
+1. Could you implement the function resolveSudoku() ?
