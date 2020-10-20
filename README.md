@@ -44,18 +44,28 @@ Comments are appreciated ;-)
 There are no wrong answers, only good opportunities to learn something new.
 
 1. What metrics are essential in term of Speed ?
+In frontend, we can use the speed-index indicator to have an idea of how fast the page becomes visible.
 
 2. Can you name ways to increase speed (perceived or actual load time) ?
+Speed-index could be improved to load only essential parts first and step by step load more detailed parts.
+We can check the evolution of the bundle size. If its growth is exponential at each features delivery, not a good sign!
+Add skeletons to components can help the user to wait.
 
 3. Could you tell me what are Observables and how they work ?
+Observables help manage async code such as Promise. An Observable will wait the return of code before starting the next sequence.
 
 4. You have a bug to fix, you find the file(s) where the bug occurs, the code is a mess, what do you do ?
+First instinct, console.log to look what it comes in and out the code.
+If I can add breakpoint to watch the code runs step by step, it will be easier.
 
 5. What represent FrontEnd to you ?
+FrontEnd is what the user has on his computer or mobile. So the user should be the top priority for the FrontEnd.
 
 6. What was the last technical challenge you faced and how you did you handle it ?
+My last challenge was the over-downloaded datas from a firebase database. We exploded the quotas, so we became more strict of what look for in datas. We tried to extract smaller node, sometimes by lazyness the API only pull up the higher node.
 
 7. What is the next language/framework/stack you want to learn this year and why ?
+I would like to learn React Native to put some of my ideas in a mobile app
 
 ## III - Extra Time
 

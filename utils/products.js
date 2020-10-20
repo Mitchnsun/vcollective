@@ -1,3 +1,11 @@
+/**
+ * 
+ * @param {number} range 
+ * range = 0: no range selected, return the whole list
+ * range = 1: Price under 500€
+ * range = 2: Price between 500€ and 1500€ included
+ * range = 3: Price over 1500€
+ */
 export const range = (list, range) => {
   const securedList = list || [];
   if(!range) return securedList;
