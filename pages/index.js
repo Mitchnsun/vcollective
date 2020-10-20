@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import useSWR from 'swr';
-import Link from 'next/link'
+import Link from 'next/link';
+import { Layout } from 'antd';
+import { Menu } from 'antd';
 
 import * as ProductsUtils from '../utils/products';
 import Product from '../components/product';
@@ -11,6 +13,8 @@ async function fetcher(url) {
   const json = await res.json();
   return json;
 }
+
+const { Header, Content } = Layout;
 
 export default function Products() {
   const [range, setRange] = useState(0);
@@ -26,18 +30,29 @@ export default function Products() {
   }
 
   return (
-    <>
-      <h1>Products</h1>
-      <nav>
-        <Link href="/off-white"><a>Off-White</a></Link>
-        <Link href="/uk-shippable"><a>Ship only in UK</a></Link>
-      </nav>
+    <Layout>
+      <Header>
+        <h1 style={{ color: "white" }}>Products</h1>
+      </Header>
+      <Menu mode="horizontal">
+        <Menu.Item key="offwhite">
+          <Link href="/off-white"><a>Off-White</a></Link>
+        </Menu.Item>
+        <Menu.Item key="ukshipping">
+          <Link href="/uk-shipping"><a>Ship only in UK</a></Link>
+        </Menu.Item>
+      </Menu>
       <FiltersBar setRange={setRange} setSorting={setSorting} />
-      <div>
+      <Content style={{
+        padding: '0 50px',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around'
+      }}>
         {updatedList.map(item => (
           <Product key={item.id} {...item} />
         ))}
-      </div>
-    </>
+      </Content>
+    </Layout>
   );
 }

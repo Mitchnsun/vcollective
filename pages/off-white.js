@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import useSWR from 'swr';
+import { Layout } from 'antd';
 
 import Product from '../components/product';
 import FiltersBar from '../components/filtersBar';
@@ -9,6 +10,8 @@ async function fetcher(url) {
   const json = await res.json();
   return json;
 }
+
+const { Header, Content } = Layout;
 
 export default function Products() {
   const [sorting, setSorting] = useState();
@@ -23,10 +26,17 @@ export default function Products() {
   }
 
   return (
-    <>
-      <h1>Off-White</h1>
+    <Layout>
+      <Header>
+        <h1 style={{ color: "white" }}>Off-White</h1>
+      </Header>
       <FiltersBar setSorting={setSorting} />
-      <div>
+      <Content style={{
+        padding: '0 50px',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around'
+      }}>
         {offWhite.map(item => {
           const updatedItem = {
             ...item,
@@ -37,7 +47,7 @@ export default function Products() {
           };
           return <Product key={item.id} {...updatedItem} />;
         })}
-      </div>
-    </>
+      </Content>
+    </Layout>
   );
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import useSWR from 'swr';
-import Link from 'next/link'
+import { Layout } from 'antd';
 
 import * as ProductsUtils from '../utils/products';
 import Product from '../components/product';
@@ -11,6 +11,8 @@ async function fetcher(url) {
   const json = await res.json();
   return json;
 }
+
+const { Header, Content } = Layout;
 
 export default function Products() {
   const [range, setRange] = useState(0);
@@ -25,17 +27,22 @@ export default function Products() {
     updatedList.sort((a, b) => b.price.price_in_cents - a.price.price_in_cents);
   }
 
-  console.log(updatedList);
-
   return (
-    <>
-      <h1>Products only in UK</h1>
+    <Layout>
+      <Header>
+        <h1 style={{ color: "white" }}>Products only in UK</h1>
+      </Header>
       <FiltersBar setRange={setRange} setSorting={setSorting} />
-      <div>
+      <Content style={{
+        padding: '0 50px',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around'
+      }}>
         {updatedList.map(item => (
           <Product key={item.id} {...item} />
         ))}
-      </div>
-    </>
+      </Content>
+    </Layout>
   );
 }

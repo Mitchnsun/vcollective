@@ -1,7 +1,8 @@
 import moment from 'moment';
+import { Card } from 'antd';
 import * as Obdusc from '../utils/obfuscator';
 
-const SalesPrice = ({ price, currency, sales_prices }) => sales_prices ?
+const SalesPrice = ({ price, currency, sales_price }) => sales_price ?
   (
     <p>
       <del><small>{price}</small></del>
@@ -13,13 +14,12 @@ const SalesPrice = ({ price, currency, sales_prices }) => sales_prices ?
   );
 
 const Product = ({ name, brand, price, seller, deposited_on}) => (
-  <div>
-    <h3>{name}</h3>
+  <Card title={name} bordered={false} style={{ flex: '0 0 300px', margin: '5px 0'}} >
     <h4>{Obdusc.brand(brand)}</h4>
     <SalesPrice {...price} />
     <p>By {seller.name} from {seller.country} on {moment(deposited_on).format("MMM Do YYYY")}</p>
     <p>Since {moment(deposited_on, "YYYY-MM-DD'T'HH:mm:ss.SSS").fromNow()}</p>
-  </div>
+  </Card>
 );
 
 export default Product;

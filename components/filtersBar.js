@@ -1,28 +1,37 @@
-const FiltersBar = ({ setRange, setSorting }) => (
-  <>
+import { Radio } from 'antd';
+
+const RANGE_OPTIONS = [
+  { label: 'Under 500€', value: 1},
+  { label: '500€ - 1500€', value: 2},
+  { label: 'Over 1500 €', value: 3},
+];
+
+const SORT_OPTIONS = [
+  { label: 'Price: Low to High', value: 'ASC'},
+  { label: 'Price: High to Low', value: 'DESC'},
+];
+
+const FiltersBar = ({ setRange, setSorting }) => {
+  const onChangeRange = (e) => setRange(e.target.value);
+  const onChangeSort = (e) => setSorting(e.target.value);
+  return (
+  <div style={{ padding: '25px 50px' }}>
     <h2>Filter by</h2>
     {setRange ? (
-      <div>
-        <label htmlFor="under500">Under 500€</label>
-        <input type="radio" name="budget" id="under500" onChange={e => setRange(1)} />
-        <br/>
-        <label htmlFor="range">500€ - 1500€</label>
-        <input type="radio" name="budget" id="range" onChange={e => setRange(2)} />
-        <br/>
-        <label htmlFor="over1500">Over 1500 €</label>
-        <input type="radio" name="budget" id="over1500" onChange={e => setRange(3)} />
-      </div>
+      <Radio.Group
+        options={RANGE_OPTIONS}
+        onChange={onChangeRange}
+        optionType="button"
+      />
     ): null}
     {setSorting ? (
-      <div>
-        <label htmlFor="asc">Price: Low to High</label>
-        <input type="radio" name="sorting" id="asc" onChange={e => setSorting('ASC')} />
-        <br/>
-        <label htmlFor="desc">Price: High to Low</label>
-        <input type="radio" name="sorting" id="desc" onChange={e => setSorting('DESC')} />
-      </div>
+      <Radio.Group
+        options={SORT_OPTIONS}
+        onChange={onChangeSort}
+        optionType="button"
+      />
     ): null}
-  </>
-);
+  </div>
+)};
 
 export default FiltersBar;
