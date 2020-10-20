@@ -16,7 +16,7 @@ export default function Products() {
   const [range, setRange] = useState(0);
   const [sorting, setSorting] = useState();
   const { data = {} } = useSWR('/api/products', fetcher);
-  const updatedList = ProductsUtils.range(data.products, range);
+  const updatedList = ProductsUtils.range(ProductsUtils.shipIn(data.products, 'UK'), range);
 
   if(sorting === 'ASC') {
     updatedList.sort((a, b) => a.price.price_in_cents - b.price.price_in_cents);
@@ -25,13 +25,11 @@ export default function Products() {
     updatedList.sort((a, b) => b.price.price_in_cents - a.price.price_in_cents);
   }
 
+  console.log(updatedList);
+
   return (
     <>
-      <h1>Products</h1>
-      <nav>
-        <Link href="/off-white"><a>Off-White</a></Link>
-        <Link href="/uk-shippable"><a>Ship only in UK</a></Link>
-      </nav>
+      <h1>Products only in UK</h1>
       <FiltersBar setRange={setRange} setSorting={setSorting} />
       <div>
         {updatedList.map(item => (
